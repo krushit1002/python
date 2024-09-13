@@ -1,0 +1,600 @@
+Module – 2 (Fundamentals of python)
+ Write a Python program to check if a number is positive, negative or
+zero.
+num = float(input("Enter a number: "))
+if num > 0:
+   print("Positive number")
+elif num == 0:
+   print("Zero")
+else:
+   print("Negative number")
+
+num = float(input("Enter a number: "))
+if num >= 0:
+   if num == 0:
+       print("Zero")
+   else:
+       print("Positive number")
+else:
+   print("Negative number")
+
+ Write a Python program to get the Factorial number of given number.
+# Python program to find the factorial of a number provided by the user.
+
+# change the value for a different result
+num = 7
+
+# To take input from the user
+#num = int(input("Enter a number: "))
+
+factorial = 1
+
+# check if the number is negative, positive or zero
+if num < 0:
+   print("Sorry, factorial does not exist for negative numbers")
+elif num == 0:
+   print("The factorial of 0 is 1")
+else:
+   for i in range(1,num + 1):
+       factorial = factorial*i
+   print("The factorial of",num,"is",factorial)
+
+
+ Write a Python program to get the Fibonacci series of given range.
+n = 10
+num1 = 0
+num2 = 1
+next_number = num2  
+count = 1
+
+while count <= n:
+    print(next_number, end=" ")
+    count += 1
+    num1, num2 = num2, next_number
+    next_number = num1 + num2
+print()
+
+
+ How memory is managed in Python?
+Understanding Memory allocation is important to any software developer as writing efficient code means writing a memory-
+efficient code. Memory allocation can be defined as allocating a block of space in the computer memory to a program. 
+In Python memory allocation and deallocation method is automatic as the Python developers created a garbage collector for 
+Python so that the user does not have to do manual garbage collection.
+Garbage collection is a process in which the interpreter frees up the memory when not in use to make it available for other
+objects.
+Assume a case where no reference is pointing to an object in memory i.e. it is not in use so, the virtual machine has a garbage
+collector that automatically deletes that object from the heap memory...
+example
+x = 10
+When x = 10 is executed an integer object 10 is created in memory and its reference is assigned to variable x, this is 
+because everything is object in Python.
+x = 10
+y = x 
+
+if id(x) == id(y): 
+	print("x and y refer to the same object") 
+x and y refer to the same object
+In the above example, y = x will create another reference variable y which will refer to the same object because Python
+optimizes memory utilization by allocation the same object reference to a new variable if the object already exists with
+the same value.
+x = 10
+y = x 
+x += 1
+
+if id(x) != id(y): 
+	print("x and y do not refer to the same object") 
+x and y do not refer to the same object
+So now x refer to a new object x and the link between x and 10 disconnected but y still refer to 10.
+Memory Allocation in Python
+There are two parts of memory:
+
+stack memory
+heap memory
+The methods/method calls and the references are stored in stack memory and all the values objects are stored in a private
+heap.
+
+ What is the purpose continue statement in python?
+Python Continue Statement skips the execution of the program block after the continue statement and forces the control to start the
+next iteration.
+Python Continue statement is a loop control statement that forces to execute the next iteration of the loop while skipping
+the rest of the code inside the loop for the current iteration only, i.e. when the continue statement is executed in the 
+loop, the code inside the loop following the continue statement will be skipped for the current iteration and the next 
+iteration of the loop will begin
+Python continue Statement Syntax
+while True:
+    ...
+    if x == 10:
+        continue
+    print(x)
+Continue statement in Python Examples
+Demonstration of Continue statement in Python
+In this example, we will use continue inside some condition within a loop.
+for var in "Geeksforgeeks":
+	if var == "e":
+		continue
+	print(var)
+Output:
+
+G
+k
+s
+f
+o
+r
+g
+k
+s
+Explanation: Here we are skipping the print of character ‘e’ using if-condition checking and continue statement.
+Printing range with Python Continue Statement
+Consider the situation when you need to write a program that prints the number from 1 to 10, but not 6. 
+
+It is specified that you have to do this using a loop and only one loop is allowed to use. Here comes the usage of the continue
+statement. What we can do here is we can run a loop from 1 to 10 and every time we have to compare the value of the loop variable
+with 6. If it is equal to 6 we willuse the continue statement to continue to the next iteration without printing anything,
+otherwise, we will print the value.
+
+# loop from 1 to 10
+for i in range(1, 11):
+
+	# If i is equals to 6,
+	# continue to next iteration
+	# without printing
+	if i == 6:
+		continue
+	else:
+		# otherwise print the value
+		# of i
+		print(i, end=" ")
+Output: 
+
+1 2 3 4 5 7 8 9 10 
+Note: The continue statement can be used with any other loop also like the while loop, similarly as it is used with for loop
+above.
+
+Continue with Nested loops
+In this example, we are creating a 2d list that includes the numbers from 1 to 9 and we are traversing in the list with the
+help of two for loops and we are skipping the print statement when the value is 3.
+
+# prints all the elements in the nested list 
+# except for the ones with value 3
+nested_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+for i in nested_list:
+	for j in i:
+		if j == 3:
+			continue
+		print(j)
+Output 
+
+1
+2
+4
+5
+6
+7
+8
+9
+
+Continue with While Loop
+In this example, we are using a while loop which traverses till 9 if i = 5 then skip the printing of numbers.
+# prints the numbers between
+# 0 and 9 that are not equal to 5
+i = 0
+while i < 10:
+	if i == 5:
+		i += 1
+		continue
+	print(i)
+	i += 1
+Output 
+
+0
+1
+2
+3
+4
+6
+7
+8
+9
+
+ Write python program that swap two number with temp variable and
+without temp variable.
+# Python program to swap two variables
+
+x = 5
+y = 10
+
+# To take inputs from the user
+#x = input('Enter value of x: ')
+#y = input('Enter value of y: ')
+
+# create a temporary variable and swap the values
+temp = x
+x = y
+y = temp
+
+print('The value of x after swapping: {}'.format(x))
+print('The value of y after swapping: {}'.format(y))
+
+Output
+
+The value of x after swapping: 10
+The value of y after swapping: 5
+
+
+ Write a Python program to find whether a given number is even or odd,
+print out an appropriate message to the user.
+# Prompt the user to enter a number and convert the input to an integer
+num = int(input("Enter a number: "))
+
+# Calculate the remainder when the number is divided by 2
+mod = num % 2
+
+# Check if the remainder is greater than 0, indicating an odd number
+if mod > 0:
+    # Print a message indicating that the number is odd
+    print("This is an odd number.")
+else:
+    # Print a message indicating that the number is even
+    print("This is an even number.")
+Sample Output:
+
+Enter a number: 5                                                                                             
+This is an odd number.
+
+ Write a Python program to test whether a passed letter is a vowel or
+not.
+# Request input from the user to input a letter of the alphabet and assign it to the variable 'l'
+l = input("Input a letter of the alphabet: ")
+
+# Check if the input letter 'l' is present in the tuple containing vowels ('a', 'e', 'i', 'o', 'u')
+if l in ('a', 'e', 'i', 'o', 'u'):
+    print("%s is a vowel." % l)  # Display a message stating that the input letter is a vowel
+# If the input letter is 'y', display a message stating that it sometimes represents a vowel and sometimes a consonant
+elif l == 'y':
+    print("Sometimes the letter y stands for a vowel, sometimes for a consonant.")
+# If the input letter doesn't fall into any of the above conditions, it is considered a consonant; display a message stating so
+else:
+    print("%s is a consonant." % l) 
+Sample Output:
+
+Input a letter of the alphabet: u                                                                             
+u is a vowel.
+
+ Write a Python program to sum of three given integers. However, if
+two values are equal sum will be zero.
+# Define a function 'sum_three' that takes three integer inputs: x, y, and z.
+def sum_three(x, y, z):
+    # Check if any of the two input values are equal. If so, set 'sum' to 0.
+    if x == y or y == z or x == z:
+        sum = 0
+    else:
+        # If all three input values are distinct, calculate the sum of x, y, and z.
+        sum = x + y + z
+    # Return the calculated sum.
+    return sum
+
+# Test the 'sum_three' function with different sets of input values and print the results.
+print(sum_three(2, 1, 2))
+print(sum_three(3, 2, 2))
+print(sum_three(2, 2, 2))
+print(sum_three(1, 2, 3))
+Sample Output:
+
+0
+0
+0
+6  
+
+ Write a Python program that will return true if the two given integer
+values are equal or their sum or difference is 5.
+# Define a function 'test_number5' that takes two integer inputs: x and y.
+def test_number5(x, y):
+    # Check if any of the following conditions are met:
+    # 1. x is equal to y.
+    # 2. The absolute difference between x and y is equal to 5.
+    # 3. The sum of x and y is equal to 5.
+    if x == y or abs(x - y) == 5 or (x + y) == 5:
+        # If any of the conditions are met, return True.
+        return True
+    else:
+        # If none of the conditions are met, return False.
+        return False
+
+# Test the 'test_number5' function with different sets of input values and print the results.
+print(test_number5(7, 2))
+print(test_number5(3, 2))
+print(test_number5(2, 2))
+print(test_number5(7, 3))
+print(test_number5(27, 53))
+Sample Output:
+
+True
+True
+True
+False
+False
+
+ Write a python program to sum of the first n positive integers.
+# Prompt the user for input and convert it to an integer.
+n = int(input("Input a number: "))
+
+# Calculate the sum of the first 'n' positive integers using the formula.
+sum_num = (n * (n + 1)) / 2
+
+# Print the result, indicating the sum of the first 'n' positive integers.
+print("Sum of the first", n, "positive integers:", sum_num)
+Sample Output:
+
+Input a number:  2
+Sum of the first 2 positive integers: 3.0
+
+ Write a Python program to calculate the length of a string.
+# Define a function named string_length that takes one argument, str1.
+def string_length(str1):
+    # Initialize a variable called count to 0 to keep track of the string's length.
+    count = 0
+
+    # Iterate through each character in the input string str1.
+    for char in str1:
+        # For each character encountered, increment the count by 1.
+        count += 1
+
+    # Return the final count, which represents the length of the input string.
+    return count
+
+# Call the string_length function with the argument 'w3resource.com' and print the result.
+print(string_length('w3resource.com')) 
+
+Sample Output:
+
+14
+
+ Write a Python program to count the number of characters (character
+frequency) in a string
+# Define a function named char_frequency that takes one argument, str1.
+def char_frequency(str1):
+    # Initialize an empty dictionary named 'dict' to store character frequencies.
+    dict = {}
+    
+    # Iterate through each character 'n' in the input string str1.
+    for n in str1:
+        # Retrieve the keys (unique characters) in the 'dict' dictionary.
+        keys = dict.keys()
+        
+        # Check if the character 'n' is already a key in the dictionary.
+        if n in keys:
+            # If 'n' is already a key, increment its value (frequency) by 1.
+            dict[n] += 1
+        else:
+            # If 'n' is not a key, add it to the dictionary with a frequency of 1.
+            dict[n] = 1
+    
+    # Return the dictionary containing the frequency of each character in the input string.
+    return dict
+
+# Call the char_frequency function with the argument 'google.com' and print the result.
+print(char_frequency('google.com')) 
+Sample Output:
+
+{'g': 2, 'o': 3, 'l': 1, 'e': 1, '.': 1, 'c': 1, 'm': 1}
+
+ What are negative indexes and why are they used?
+Example
+Get the characters from position 5 to position 1, starting the count from the end of the string:
+
+b = "Hello, World!"
+print(b[-5:-2])
+
+ Write a Python program to count occurrences of a substring in a string.
+# Define a string 'str1' with a sentence.
+str1 = 'The quick brown fox jumps over the lazy dog.'
+
+# Print an empty line for spacing.
+print()
+
+# Count and print the number of occurrences of the substring "fox" in the string 'str1'.
+print(str1.count("fox"))
+
+# Print an empty line for spacing.
+print() 
+Sample Output:
+
+1 
+
+ Write a Python program to count the occurrences of each word in a
+given sentence
+# Define a function named word_count that takes one argument, 'str'.
+def word_count(str):
+    # Create an empty dictionary named 'counts' to store word frequencies.
+    counts = dict()
+    
+    # Split the input string 'str' into a list of words using spaces as separators and store it in the 'words' list.
+    words = str.split()
+
+    # Iterate through each word in the 'words' list.
+    for word in words:
+        # Check if the word is already in the 'counts' dictionary.
+        if word in counts:
+            # If the word is already in the dictionary, increment its frequency by 1.
+            counts[word] += 1
+        else:
+            # If the word is not in the dictionary, add it to the dictionary with a frequency of 1.
+            counts[word] = 1
+
+    # Return the 'counts' dictionary, which contains word frequencies.
+    return counts
+
+# Call the word_count function with an input sentence and print the results.
+print( word_count('the quick brown fox jumps over the lazy dog.'))
+Sample Output:
+
+{'the': 2, 'jumps': 1, 'brown': 1, 'lazy': 1, 'fox': 1, 'over': 1, 'quick': 1, 'dog.': 1}
+
+ Write a Python program to get a single string from two given strings,
+separated by a space and swap the first two characters of each string.
+# Define a function named chars_mix_up that takes two arguments, 'a' and 'b'.
+def chars_mix_up(a, b):
+    # Create a new string 'new_a' by taking the first two characters from 'b' and combining
+    # them with the characters from 'a' starting from the third character.
+    new_a = b[:2] + a[2:]
+
+    # Create a new string 'new_b' by taking the first two characters from 'a' and combining
+    # them with the characters from 'b' starting from the third character.
+    new_b = a[:2] + b[2:]
+
+    # Concatenate 'new_a', a space character, and 'new_b' to create a single string.
+    return new_a + ' ' + new_b
+
+# Call the chars_mix_up function with the arguments 'abc' and 'xyz' and print the result.
+print(chars_mix_up('abc', 'xyz'))  # Output: 'xyc abz' 
+Sample Output:
+
+xyc abz
+
+ Write a Python program to add 'ing' at the end of a given string (length
+should be at least 3). If the given string already ends with 'ing' then add
+'ly' instead if the string length of the given string is less than 3, leave it
+unchanged.
+# Define a function named add_string that takes one argument, 'str1'.
+def add_string(str1):
+    # Get the length of the input string 'str1' and store it in the variable 'length'.
+    length = len(str1)
+
+    # Check if the length of 'str1' is greater than 2 characters.
+    if length > 2:
+        # If the last three characters of 'str1' are 'ing', add 'ly' to the end.
+        if str1[-3:] == 'ing':
+            str1 += 'ly'
+        else:
+            # If the last three characters are not 'ing', add 'ing' to the end.
+            str1 += 'ing'
+
+    # Return the modified 'str1'.
+    return str1
+
+# Call the add_string function with different input strings and print the results.
+print(add_string('ab'))      # Output: 'ab'
+print(add_string('abc'))     # Output: 'abcing'
+print(add_string('string'))  # Output: 'stringly'
+Sample Output:
+
+ab                                                                                                            
+abcing                                                                                                        
+stringly
+
+ Write a Python program to find the first appearance of the substring
+'not' and 'poor' from a given string, if 'not' follows the 'poor', replace the
+whole 'not'...'poor' substring with 'good'. Return the resulting string.
+# Define a function named not_poor that takes one argument, 'str1'.
+def not_poor(str1):
+    # Find the index of the substring 'not' in the input string 'str1' and store it in 'snot'.
+    snot = str1.find('not')
+    
+    # Find the index of the substring 'poor' in the input string 'str1' and store it in 'spoor'.
+    spoor = str1.find('poor')
+
+    # Check if 'poor' is found after 'not', and both 'not' and 'poor' are present in the string.
+    if spoor > snot and snot > 0 and spoor > 0:
+        # Replace the substring from 'snot' to 'spoor+4' (inclusive) with 'good'.
+        str1 = str1.replace(str1[snot:(spoor+4)], 'good')
+        return str1
+    else:
+        # If the conditions are not met, return the original 'str1'.
+        return str1
+
+# Call the not_poor function with different input strings and print the results.
+print(not_poor('The lyrics is not that poor!'))  # Output: 'The lyrics is good!'
+print(not_poor('The lyrics is poor!'))          # Output: 'The lyrics is poor!'
+Sample Output:
+
+The lyrics is good!
+The lyrics is poor!
+
+ Write a Python function that takes a list of words and returns the length
+of the longest one.
+# function to find the longest
+# length in the list
+def longestLength(a):
+	max1 = len(a[0])
+	temp = a[0]
+
+	# for loop to traverse the list
+	for i in a:
+		if(len(i) > max1):
+
+			max1 = len(i)
+			temp = i
+
+	print("The word with the longest length is:", temp,
+		" and length is ", max1)
+
+
+# Driver Program
+a = ["one", "two", "third", "four"]
+longestLength(a)
+
+Output
+The word with the longest length is: third  and length is  5
+
+ Write a Python function to reverses a string if its length is a multiple of
+4.
+# Define a function named reverse_string that takes one argument, 'str1'.
+def reverse_string(str1):
+    # Check if the length of the input string 'str1' is divisible by 4 with no remainder.
+    if len(str1) % 4 == 0:
+        # If the length is divisible by 4, reverse the characters in 'str1' and join them together.
+        return ''.join(reversed(str1))
+    
+    # If the length of 'str1' is not divisible by 4, return 'str1' as it is.
+    return str1
+
+# Call the reverse_string function with different input strings and print the results.
+print(reverse_string('abcd'))   # Output: 'dcba' (Reversed)
+print(reverse_string('python')) # Output: 'python' (Not reversed)
+Sample Output:
+
+dcba                                                                                                          
+python
+
+ Write a Python program to get a string made of the first 2 and the last
+2 chars from a given a string. If the string length is less than 2, return
+instead of the empty string.
+# Define a function named string_both_ends that takes one argument, 'str'.
+def string_both_ends(str):
+    # Check if the length of the input string 'str' is less than 2 characters.
+    if len(str) < 2:
+        # If the string is shorter than 2 characters, return an empty string.
+        return ''
+
+    # If the string has at least 2 characters, concatenate the first two characters
+    # and the last two characters of the input string and return the result.
+    return str[0:2] + str[-2:]
+
+# Call the string_both_ends function with different input strings and print the results.
+print(string_both_ends('w3resource'))  # Output: 'w3ce'
+print(string_both_ends('w3'))          # Output: 'w3w3'
+print(string_both_ends('w'))           # Output: '' 
+
+Sample Output:
+
+w3ce                                                                                                          
+w3w3 
+
+ Write a Python function to insert a string in the middle of a string.
+# Define a function named insert_string_middle that takes two arguments, 'str' and 'word'.
+def insert_string_middle(str, word):
+    # Create and return a new string by concatenating the first two characters of 'str',
+    # followed by the 'word', and then the remaining characters of 'str' starting from the third character.
+    return str[:2] + word + str[2:]
+
+# Call the insert_string_middle function with different input strings and words and print the results.
+print(insert_string_middle('[[]]', 'Python'))  # Output: '[Python]'
+print(insert_string_middle('{{}}', 'PHP'))    # Output: '{{PHP}}'
+print(insert_string_middle('<<>>', 'HTML'))    # Output: '<>'
+Sample Output:
+
+[[Python]]                                                                                                    
+{{PHP}}                                                                                                       
+<<HTML>> 
