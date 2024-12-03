@@ -1,0 +1,740 @@
+Module – 5 (DB and Python Framework)
+ Why Django should be used for web-development? Explain how you
+can create a project in Django?
+Python is a powerful high-level programming language that can be possibly used in a lot of fields. These fields can range 
+from data science to automation and web development. It also has amazing libraries and frameworks that include pandas, 
+NumPy, PyTorch, selenium, OpenCV, bottle, pyramid, flask, etc. One such framework in Python that is used for web development
+majorly is Django.Django is a full-stack web framework that is open-sourced and follows an MVT (Model View Template) type of
+architecture. It is comprised of a set of components and modules that aids in faster development and is used by a few of 
+the world’s top companies like Instagram, Mozilla, Spotify, Quora, YouTube, Reddit, Pinterest, Dropbox, bitly, Google, Disqus,
+etc. Today we are going to discuss why is Django is the most loved, preferred, and believed to be the best framework for web
+development. We will look at its features one by one and understand why it is so popular, so let’s get started!
+1. Simplifies Development to a Huge Extent
+2. Provides Inbuilt and Up-to-Date Security Features
+3. Suitable For Any Type of Project
+4. Implements DRY and KISS
+5. Contains Support For REST APIs
+6. Massive Community Support
+Dive into the world of web development with Python by exploring the versatile Django framework. Django is a go-to for many
+developers due to its popularity, open-source license, and robust security features. It enables fast and efficient project
+development. In this tutorial, we will guide you through the process of installing Django on a Windows machine using pip, 
+verifying the installation, creating a new project, and launching a Django development server. Get ready to enhance your 
+web development skills and experience the power of Django.
+Create a Project in Django
+Before you begin, you will need to have the following:
+
+Windows 10 or later
+Python 3.6 or later
+Python pip
+Step 1: Opening PowerShell
+The first step is to open PowerShell. To do this, press the Windows key and type PowerShell. Right-click on the PowerShell
+icon and select Run as Administrator.
+Step 2: Verifying Python Installation
+Once PowerShell is open, you can verify that Python is installed by typing python –version. This will display the version
+of Python that is installed.
+Step 3: Upgrading PIP
+Next, you will need to upgrade pip. To do this, type python -m pip install –upgrade pip. This will ensure that you have the
+latest version of pip installed.
+Step 4: Creating a Project Directory
+Now, you will need to create a project directory. To do this, type mkdir myproject. This will create a directory called 
+myproject.
+(i) Create the directory by utilizing the mkdir command. This command is a powerful tool that allows you to quickly and 
+easily create a directory in your system. With this command, you can create a directory in seconds, making it a great time
+-saver for any user.
+(ii) Navigate to the Django_Project directory using the `cd` command. Here, you’ll find all the necessary components to 
+get your project up and running.
+Step 5: Creating the Virtual Environment
+Next, you will need to create a virtual environment. To create a virtual environment called myproject.
+To do this, type in terminal
+Step 6: Activating the Virtual Environment
+Now, you will need to activate the virtual environment. To do this, type
+Step 7: Installing Django
+This section will teach you how to install Django on your system using pip. To do this, run the following command: 
+
+pip install Django 
+This will install the latest version of Django, allowing you to start building powerful web applications easily.
+If you wish to install a different version of Django, you can easily specify the version you desire by following these
+steps:
+Once the installation is complete, you must verify that Django has been successfully installed. To do this, enter the 
+following command:
+Step 8: Create the Django Project
+Now it’s time to create a project. According to the Django documentation, a project is a Python package – i.e. a directory
+of code – that contains all the settings for an instance of Django. This includes database configuration, Django-specific 
+options, and application-specific settings.
+To create the project, use the command-line utility django-admin that comes with Django. This command will generate files 
+where you can configure the settings for your database, add third-party packages, and more.
+django-admin startproject test_project
+Change into the test_project directory:
+cd test_project
+Type the following command to see the contents in the project directory:
+ls test_project
+Create the project using the following command:
+The directory test_project contains Django configuration files. The manage.py file is especially useful when starting a 
+development server, which is what you will do in the next step.
+Step 9: Running the Development Server
+Now that the project has been created, it’s time to start the Django development server.Start the development server using
+the manage.py runserver command:
+Note: Make sure sure you are in the same directory as manage.py file after to run manage.py runserver
+Conclusion:
+You have come to the end of this article. You learned how to install Django on Windows, verify the installation, and you 
+also learned how to create a Django project and start a development server.
+Step 10: Create app in django
+Now as we created the project in django and our django server is up and running and if now to create app in django project
+we can achieve it b by using django inbuit command which will initiate the django app for us.
+Note: Make sure before running the command we must inside our project directory if not then run the below command
+cd test_project
+now we are inside the test_project and we are ready to create django app
+
+django-admin startapp test_app
+Now this command will create app inside our project and we ready to go with the django project and to know more about 
+django app you can refer to the article – How to create app in django.
+Are you ready to elevate your web development skills from foundational knowledge to advanced expertise? Explore our 
+Mastering Django Framework - Beginner to Advanced Course on GeeksforGeeks, designed for aspiring developers and experienced
+programmers. This comprehensive course covers everything you need to know about Django, from the basics to advanced features.
+Gain practical experience through hands-on projects and real-world applications, mastering essential Django principles and
+techniques. Whether you’re just starting or looking to refine your skills, this course will empower you to build sophisticated
+web applications efficiently. Ready to enhance your web development journey? Enroll now and unlock your potential with 
+Django!
+
+ How to check installed version of django?
+This article is for checking the version of Django. When we create projects using Django and sometimes we might stuck where
+the version is not able to support certain functions of your code. There are many methods to check the current version of 
+Django but you need Django installed on your machine.
+
+Check Django Version using the Terminal
+Example 1: To check the Django version for python3 open the terminal and write the command in your terminal:
+
+python -m django --version
+
+Example 2: Another way to check Django version for python3 is by using the below command.
+
+django-admin --version
+
+Example 3: You can also check django version while running the project.
+
+python manage.py runserver
+
+Check the Django Version using IDLE
+To check Django version for python3 open your Python IDLE. Write the same line in your IDLE given below
+
+import django
+django.get_version()
+
+import django
+django.VERSION
+
+Check Django Version using the pip
+It gives all the current versions of python modules you installed in your system. Open your terminal and write the pip 
+command in your terminal
+
+pip freeze
+or
+
+pip list
+both the command will give you information about all the installed Python packages in your current Python environment.
+
+Checking Django Version from Within a Python Script
+Open the project directory in your code editor after that open the file “manage.py” in the project directory and now Look 
+for the line “import django” at the top of the file. Below this line, add the following code:
+
+print(django.get_version())
+Save the file and run the command “python manage.py” in the terminal.The Django version will be displayed in the terminal
+output. 
+
+Update Django Version for Python
+If you want to update your Django version you can use any one of these commands to update your Django.
+
+python -m pip install --upgrade Django
+python -m pip install -U Django
+
+# Python 3.8 to 3.11 supported only
+python -m pip install django-upgrade
+Upgrade or Downgrade your Django version for Python
+Sometimes you want the specific version of django in your environment to work properly for this you can enter the version
+number to upgrade or downgrade your Django version using the below command.
+
+pip install -v Django==3.0.5
+By the we can install the specific version of the django for our project
+
+
+Looking to dive into the world of programming or sharpen your Python skills? Our Master Python: Complete Beginner to 
+Advanced Course is your ultimate guide to becoming proficient in Python. This course covers everything you need to build
+a solid foundation from fundamental programming concepts to advanced techniques. With hands-on projects, real-world examples,
+and expert guidance, you'll gain the confidence to tackle complex coding challenges. Whether you're starting from scratch
+or aiming to enhance your skills, this course is the perfect fit. Enroll now and master Python, the language of the future!
+
+ Explain what does django-admin.py make messages command is used
+for?
+Prerequisites:  Django Introduction and Installation
+
+Manage.py in Django is a command-line utility that works similar to the django-admin command. The difference is that it 
+points towards the project’s settings.py file. This manage.py utility provides various commands that you must have while
+working with Django. Some of the most commonly used commands are –
+
+python manage.py startapp
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+
+Interestingly we can create our own Custom Management Commands to fulfill a wide variety of requirements ranging from
+interacting with our application using the command line to serve as an interface to execute Cron Jobs. We are going to 
+create a custom Management Command which gives us the stats or metrics of new articles published, comments on those articles
+on a particular day.
+
+Getting Started
+Follow Django Introduction and Installation to setup a virtual environment and install Django
+
+Step 1: Initialize a project by following command
+
+django-admin startproject geeks_site
+Step 2: Create an app named blog
+
+python manage.py startapp blog
+Step 3: Add your app to the settings.py
+
+In geeks_site/settings.py
+
+# Application definition 
+
+INSTALLED_APPS = [ 
+	'django.contrib.admin', 
+	'django.contrib.auth', 
+	'django.contrib.contenttypes', 
+	'django.contrib.sessions', 
+	'django.contrib.messages', 
+	'django.contrib.staticfiles', 
+	'blog', 
+]
+
+Step 4: Create Models named Article and Comment in the blog app
+
+Model Article :
+
+Fields :
+title: Stores the title of an article
+body: Content of that article
+created_on: Date and Time on which that article was created
+Model Comment :
+
+Fields :
+article:  Article on which comment is created
+text: Actual comment
+created_on: Date and Time on which that article was created
+In blog/models.py
+
+from django.db import models 
+
+
+class Article(models.Model): 
+	title = models.CharField(max_length=200) 
+	body = models.TextField() 
+	created_on = models.DateTimeField(auto_now_add=True) 
+
+
+class Comment(models.Model): 
+	article = models.ForeignKey(Article, on_delete=models.CASCADE) 
+	text = models.CharField(max_length=200) 
+	created_on = models.DateTimeField(auto_now_add=True) 
+Step 5: Register your model in blog/admin.py so that it shows up in the admin panel.
+
+In blog/admin.py
+
+from django.contrib import admin 
+from .models import Article, Comment 
+	
+admin.site.register(Article) 
+admin.site.register(Comment)
+
+Step 6: Now, To migrate all your changes and start the server, run the following commands in your terminal
+
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+Create a superuser account to log in to the admin panel
+
+python manage.py createsuperuser
+Now, Visit the admin panel at http://127.0.0.1:8000/admin/
+
+Create some articles and then some comments :
+Now, Let’s start working on the creation of Custom Django Management Commands
+
+Add a management/commands directory to the blog app
+Add __init__.py to blog/management and __init__.py + stats.py files to blog/management/commands directory
+Note: Django will register a manage.py command for each Python module in that directory whose name doesn’t begin with an 
+underscore
+
+The folder structure of the blog app looks like this :
+
+Getting Started
+
+We will use python manage.py stats to run our custom management command. Now we will configure what actually this command will do.
+
+In stats.py
+
+Understanding the stats.py file
+
+Basically, a Django management command is built from a class named Command which inherits from BaseCommand.
+
+1) help: It tells what actually the command does. Run the following command and see the help
+
+python manage.py stats --help
+2) handle(): It handles all the logic which needs to be executed when the command is executed. Let’s understand of code 
+inside handle() method
+
+Here we are concerned about the following two stats
+Number of articles which were published in last 5 hours
+Number of  comments created in last 5 hours per article
+From: Current time – 5 hours
+To: Current Time
+articles_published_in_last_5_hour : an integer value
+comments_published_per_article :  queryset object or a list of dictionaries
+print statements to output data on terminal
+Now, Run the following command in your terminal :
+
+python manage.py stats
+
+Adding Arguments
+Django uses the argparse module to handle the custom arguments. We need to define a function add_arguments under the 
+command class to handle arguments.
+
+ What is Django URLs?make program to create django urls
+
+1. Creating a url USING PATH()
+Django introduced the path method and re_path() method in version 2.0, allowing for the inclusion of an element as a URL pattern within a tuple that can be used for URL patterns.
+
+Syntax: 
+
+path(route, view, kwargs=None, name=None)
+urls.py:
+
+from django.contrib import admin
+from django.conf.urls import url,include
+from django.urls import path
+from Django_app1 import views
+admin.autodiscover()
+urlpatterns = [
+    path('index/',views.template_view,name='template'),
+    url(r'^myapp/', include('Django_app1.urls')),
+    url(r'admin/', admin.site.urls),
+]
+2. Creating a Django URL USING RE_PATH()
+The re_path() method allows using Python regular expressions in URLs. This was introduced in version 2.0, along with the path() method.
+
+Syntax:
+
+path(route, view, kwargs=None, name=None)
+urls.py:
+
+from django.contrib import admin
+from django.conf.urls import url,include
+from django.urls import path , re_path
+from Django_app1 import views
+admin.autodiscover()
+urlpatterns = [
+    re_path('^indexs??/$',views.template_view,name='template'),
+    url(r'^myapp/', include('Django_app1.urls')),
+    url(r'admin/', admin.site.urls),
+]
+3. Creating a Django url Through INCLUDE
+The technique involves creating url patterns within each app. This will bring more flexibility when the app needs to be plugged into a different application. Just making the inclusion of these URL’s in the main project urls.py file will help to access the web pages associated with that Django application easily. Below are the steps related to making an include-oriented Django urls.py in place.
+
+Django app urls.py: First, a urls.py file needs to be created within the application. Each project in Django should maintain its own urls.py file for every application. This ensures effortless inclusion and exclusion of applications from the project.
+
+ Like usual urls.py, this file contains the import of the url class from the django.conf.URLs library, and most importantly, the views file for this application is expected to be imported here from the Django application mentioned. When importing views from a Django application, you need to specify the method of the view being imported. As mentioned earlier in the URL declarations, the URL mapping is associated with a name and also includes the mapping path. So this section acts as the formulation of the urls.py file inside the individual Django application.
+
+from django.contrib import admin
+from django.conf.urls import url
+from Django_app1 import views
+urlpatterns = [
+    url(r'formpage/',views.formView,name='form'),
+]
+Main project urls.py: This urls.py file will act as the premiere URL linking the library for the entire application. Here, all the URLs from the Django application can be included, meaning every page addressed in those applications can be accessed here sophisticatedly. The first significant element to be taken care of is that the include method is imported from django.conf.urls library. This is the first key thing to be taken care of. Next, ensure the admin class is also imported. This admin class is useful in setting the auto-discover method. At last, it needs to be ensured that the urls.py file from the Django application is included as an item in the urlpatterns tuple. Making this include will automatically import all the urls from that corresponding application.
+
+from django.contrib import admin
+from django.conf.urls import url,include
+from Django_app1 import views
+admin.autodiscover()
+urlpatterns = [
+    url(r'^$',views.template_view,name='template'),
+    url(r'^myapp/', include('Django_app1.urls')),
+    url(r'admin/', admin.site.urls),
+]
+4. Setting Converters in URLS
+The converters are responsible for converting a dynamic value in the URL to a needed value format.
+
+In the example below, you can see how to convert the URL value to a string format and then pass it into its corresponding view.
+
+urls.py:
+
+from django.contrib import admin
+from django.conf.urls import url,include
+from django.urls import path , re_path,register_converter
+from django.urls.converters import StringConverter
+from Django_app1 import views
+admin.autodiscover()
+register_converter(StringConverter, 'username')
+urlpatterns = [
+    path('index//',views.template_view,name='template'),
+#    url(r'formpage/',views.formView,name='form'),
+    url(r'^myapp/', include('Django_app1.urls')),
+    url(r'admin/', admin.site.urls),
+]
+Views.py:
+
+from django.shortcuts import render
+from django.http import  HttpResponse
+from Django_app1.forms import Valueform
+from django.core.exceptions import ViewDoesNotExist
+from django.contrib.auth.models import User
+def template_view(request_iter,uname):
+    template_Var =  {
+                 "Entity_name" : "Educba",
+                 "Entity_type"  : "tutorial",
+                 "Entity_students_count" : 345,
+                 "Error_Message" : "No Valid Entity found"
+                 }
+    print("Username:",uname)
+    return  render(request_iter,'design.html',context=template_Var)
+5. Creating a Django URL Through URL()
+1. Create a Template folder: To create templates for your web page’s html design, save them in the template folder located
+in the primary folder of your Django project.
+
+2. Tag the Template folder in settings.py file: The settings.py file needs the tag for the templates folder to make all templates accessible for the entire Django project. This brings in the capability of accessing all the html files placed as a part of the templates folder.
+
+import os
+# Build paths inside the project like this: os.path.join(BASE_DIR,...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+Template_DIR = os.path.join(BASE_DIR,'Templates')
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [Template_DIR,],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]Template_DIR = os.path.join(BASE_DIR,'Templates')
+3. Place an HTML file inside the Templates folder: The HTML content for the web page is drafted.
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Django App1</title>
+</head>
+<body>
+<h1> Hello world from HTML page <h1>
+</body>
+</html>
+4. Render the html file in views.py using render() method: For passing the newly created HTML content to the web page or, in other words, to connect the content to the webpage, the render() method is used. The render method combines a template with the context dictionary to return a HttpResponse object.
+
+from django.shortcuts import render
+from django.http import  HttpRespons
+def index(request_iter):
+  return  render(request_iter,'design.html')
+Import the library from django.conf.urls import url.
+Declare a url entry in the urlpatterns list.
+url(url_path, view_to_be_tagged, name_for_this_view)
+Example
+
+from django.contrib import admin
+from django.conf.urls import url
+from Django_app1 import views
+Reload the server using the python manage.py runserver command and verify the webpage.
+The console will display the server messages listed below, enabling you to ascertain the precise time for initiating the server. Also, the http link and the version of the used Django server will be displayed.
+Watching for file changes with StatReloader
+Performing system checks...
+System check identified no issues (0 silenced).
+June 23, 2020 - 13:33:00
+Django version 3.0.7, using settings 'educba.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+Reload the server using the python manage.py runserver command and verify the webpage.
+
+6. Django URL Error Codes
+Error Code	Meaning
+400	Bad request
+403	Permission denied
+404	Page not found
+500	Server Error
+
+ What is a QuerySet?Write program to create a new Post object in
+database:
+A QuerySet is a collection of data from a database.
+
+A QuerySet is built up as a list of objects.
+
+QuerySets makes it easier to get the data you actually need, by allowing you to filter and order the data at an early
+stage.
+
+I am trying to create a new post to a forum, and it does work, i am also printing if the form is valid, but when i go to 
+check after the post is not posted. In the admin page, the post is there, approved, but missing the tags and category 
+fields. They was added when the post was created, if not i get an error. But I have to manually add them in the admin page
+to get the post posted to the forum.
+
+Here is my Post in models
+
+class Post(models.Model):
+    title = models.CharField(max_length=400)
+    slug = models.SlugField(max_length=400, unique=True, blank=True)
+    user = models.ForeignKey(Author, on_delete=models.CASCADE)
+    content = HTMLField()
+    categories = models.ManyToManyField(Category)
+    date = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=True)
+    tags = TaggableManager()
+    comments = models.ManyToManyField(Comment, blank=True)
+    # closed = models.BooleanField(default=False)
+    # state = models.CharField(max_length=40, default="zero")
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(Post, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title
+
+Here is my views.py
+
+@login_required
+def create_post(request):
+    context = {}
+    form = PostForm(request.POST or None)
+    if request.method == "POST":
+        if form.is_valid():
+            print("\n\n form is valid")
+            author = Author.objects.get(user=request.user)
+            new_post = form.save(commit=False)
+            new_post.user = author
+            new_post.save()
+
+            return redirect('forums')
+        
+    context.update({
+            'form': form,
+            'title': 'Create New Post'
+    })
+    return render(request, 'forums/create_post.html', context)
+The html is just very simple, to test.
+
+The html is just very simple, to test.
+
+<form method="POST">
+                            {% csrf_token %}    
+                            {{form|crispy}}
+                            <!-- Submit Post -->
+                            <input type="submit" value="Save">
+                        </form>
+Please any help would be much appreciated
+
+ Mention what command line can be used to load data into Django?
+Using the Command Line
+Up till now, most people have only interacted with their computer by clicking around on graphical interfaces created to 
+make things easy. However, many tasks, such as editing files, browsing our file system, and running code, can be done
+through commands entered into our computer's command line. Command line tools are critical for anyone interested in 
+delving into software engineering; they are also the main way we'll be interacting with the file system while doing web 
+development. Don't worry if a lot of this seems complicated or foreign. The goal is to just get acquainted with the tool 
+here and then to grow comfortable through experience using it.
+
+Windows Users (prior to Windows 10 Bash)
+This tutorial asks you to copy and past commands into your terminal. If you have a windows computer prior to the introduction
+Windows 10 bash, you don't have a terminal. Instead, you have a Command-Line or Command-Prompt. They do the same things, 
+but the commands might differ a bit. I'd recommend following along until you see that a command doesn't work. At that point
+just Google what the correct command is and all will be well :)
+
+Note: From here on out I will be referring to the command-line as Terminal, even though I mean CMD if you are on a Windows.
+
+Opening and Using Terminal (pwd)
+As mentioned in the previous section, Mac users should open up the Terminal and Windows users should open up Cygwin. When 
+you open it up you should see the following application:
+
+While the formatting of your terminal might look different (colors, font, etc), the general idea is that there is a cursor
+and area for you to type into. What you essentially are looking at is the equivalent of looking into a folder in your 
+Finder file system. When you open your terminal, you always open to your home directory. To find out what directory you 
+currently in, type the command pwd, or present working directory:
+
+pwd
+
+
+As you can see here, I am currently two folders deep inside of the Rohan/ folder which is contained inside of the Users/ 
+folder. Note that the highest level folder is called "root", which is denoted by a single "/".
+
+Viewing Files in Directory (ls)
+While we know we are inside a specific folder, we aren't able to see the contents of the folder the same way we can do that
+when we are using Finder. However, fear not! The ls, or list, command shows us the contents of the directory that we are
+currently in:
+
+ls
+
+Here notice how ls showed me other folders, like Desktop/, and also files, like wwooo.py.
+
+Changing Directories (pwd)
+Now that we can see what folder we are in with pwd, and see what is inside of that folder with ls, the next logical thing
+would be to change into different folders and move around our file system. The command to do this is cd, or change 
+directories:
+
+cd <path>
+
+
+Here I am changing into my Desktop/ from Rohan/. Note that once you change directories and then do pwd, the present working
+directory reflects the changed directory.
+
+In order to go backwards, or up your file system tree, (i.e. go from Desktop/ back to Rohan/), you have to use the command "cd ..":
+
+cd ..
+
+
+All of the navigation between folders that we have done so far has all been relative, i.e. we are changing from our current
+folder to another folder that is inside of the current folder or one level higher than the current folder. However, 
+sometimes we will want to go to a folder that is far away from where we currently are. In order to do this we have to 
+change directories to an absolute path. Absolute paths start with a "/" indicating that the folder path you are giving 
+starts from the root folder.
+
+cd /<path>
+
+
+Making a folder (mkdir)
+Now that we can easily navigate through our file system, let's start actually interacting with it by changing it! First, 
+the way to make a new directory is with the mkdir command:
+
+mkdir <foldername>
+
+Notice that when we change into the new folder1/ that we created, ls shows us that it is empty. This is what we expect 
+because we only just made it!
+
+Making and Editing files (vim)
+Now, let's talk about how to actually make a file and edit that file inside of the terminal. There are a few tools out 
+there to edit files inside of the terminal and there are large debates over which one is best. I was taught how to use 
+vim first and so I am just going to go with that (please don't take this as a political statement).
+
+The way to open a file in vim is to type vim <filename> where <filename> is the file you are trying to open. I the file 
+doesn't exist in the current directory that you are in, it will create a blank file with that name.
+
+vim <filename>
+
+When you press enter and run the "vim test.py" command, you should see a screen that looks like the image above. What you 
+are looking at is the vim command line editor. The main thing to understand about using vim is that it has two different 
+modes:
+
+Command mode: This is the mode that it is in when you open it. When it is in command mode, typing doesn't produce text in 
+the file. Instead, different characters stand for different commands that we use to perform different actions like saving, undoing, copying and pasting, etc.
+Insert/Edit mode: This mode can be switched into from command mode by pressing "i" while in command mode. While in insert
+mode, you can type as a mostly normal text editor. To exit insert mode and go back to command mode, you press escape.
+
+
+The last thing we need to know to use this editor is understand how to save files. In order to save a file, first use Esc 
+to be in command mode. Then type in the characters ":wq" and then press enter. "w" is the command to save and "q" is the 
+command to quit. Thus, this effectively saves and quits out of the file, successfully creating the new file that we wanted
+to make.
+
+Running a Python File (python)
+Now that we have made a python file, let's run it from the command line! In order to do this you simply type the python 
+<filename>:
+
+python <filename>
+
+
+Conclusion
+In summary, there are a few different commands that are important to know in order to use the command-line:
+
+pwd: shows the present working directory
+ls: lists the files in the current directory
+cd <path>: changes directories from current directory to the directory specified by <path>
+mkdir <name>: creates a folder with the name <name> inside the current directory
+vim <filename>: opens <filename> to be edited in vim. If <filename> doesn't exist in the current directory, it creates a 
+new file with that name
+Now we'll talk about installing the modules we need and setting up the environment in which we are going to do development.
+wd
+
+ Explain what does django-admin.py make messages command is used
+for?
+The first step is to create a message file for a new language. A message file is a plain-text file, representing a single
+language, that contains all available translation strings and how they should be represented in the given language. 
+Message files have a .po file extension.
+
+Django comes with a tool, django-admin makemessages, that automates the creation and upkeep of these files.
+
+Gettext utilities
+
+The makemessages command (and compilemessages discussed later) use commands from the GNU gettext toolset: xgettext, msgfmt,
+msgmerge and msguniq.
+
+The minimum version of the gettext utilities supported is 0.15.
+
+To create or update a message file, run this command:
+
+django-admin makemessages -l de
+…where de is the locale name for the message file you want to create. For example, pt_BR for Brazilian Portuguese, de_AT 
+for Austrian German or id for Indonesian.
+
+The script should be run from one of two places:
+
+The root directory of your Django project (the one that contains manage.py).
+
+The root directory of one of your Django apps.
+
+The script runs over your project source tree or your application source tree and pulls out all strings marked for translation
+(see How Django discovers translations and be sure LOCALE_PATHS is configured correctly). It creates (or updates) a message
+file in the directory locale/LANG/LC_MESSAGES. In the de example, the file will be locale/de/LC_MESSAGES/django.po.
+
+When you run makemessages from the root directory of your project, the extracted strings will be automatically distributed to the proper message files. That is, a string extracted from a file of an app containing a locale directory will go in a message file under that directory. A string extracted from a file of an app without any locale directory will either go in a message file under the directory listed first in LOCALE_PATHS or will generate an error if LOCALE_PATHS is empty.
+
+By default django-admin makemessages examines every file that has the .html, .txt or .py file extension. If you want to override
+that default, use the --extension or -e option to specify the file extensions to examine:
+
+django-admin makemessages -l de -e txt
+Separate multiple extensions with commas and/or use -e or --extension multiple times:
+
+django-admin makemessages -l de -e html,txt -e xml
+
+ Make Django application to demonstrate following things o There will
+be 2 modules(Admin,Product manager) o Admin can add product name
+(ex.Product id and product name) ex. (1, Samsung), (2, Apple)...etc.
+Data should store in
+#modules
+from django.db import models
+
+class Admin(models.Model):
+    Product_id=models.CharField(max_length=5)
+    Product_Name=models.CharField(max_lenght=50)
+    
+class Product_Manager(models.Model):
+    Admin=models.foreignkey(Admin, on_delete=models.CASCADE)
+    
+Product_mst table with product id as primary key o Admin can add product subcategory details Like (Product price, product
+image,Product model, product Ram) data should store in Product_sub_cattable o Admin can get product name as foreign key 
+from product_mst table in product_sub_category_details page Admin can view, update and delete all registered details of 
+product manager can search product on search bar and get all details about product
+from django.db import models
+
+class ProductMst(models.Model):
+    product_id = models.AutoField(primary_key=True)
+    product_name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.product_name
+
+class ProductSubCat(models.Model):
+    product = models.ForeignKey(ProductMst, on_delete=models.CASCADE)
+    product_price = models.DecimalField(max_digits=10, decimal_places=2)
+    product_image = models.ImageField(upload_to='images/')
+    product_model = models.CharField(max_length=50)
+    product_ram = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.product.product_name
+
+ Product_mst table with product id as primary key o Admin can add
+product subcategory details Like (Product price, product image,
+Product model, product Ram) data should store in Product_sub_cat
+table o Admin can get product name as foreign key from
+product_mst table in product_sub_category_details page Admin can
+view, update and delete all registered details of product manager can
+search product on search bar and get all details about product.
