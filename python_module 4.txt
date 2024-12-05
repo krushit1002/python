@@ -1,0 +1,1131 @@
+Module – 4 (Advance python programming)
+ What is File function in python? What is keywords to create and write
+file.
+File handling in Python is an important part of any web application. Python offers several functions for opening, reading,
+creating, writing, closing, or deleting files in python. In this article, we will briefly discuss how to handle files in 
+Python.
+
+When you write any Python program, you save it in a file, and each file has its unique name and file extension. Files 
+permanently store the data in non-volatile memory. Python allows users to handle the file, i.e., you can open, read, write,
+delete, or close files. This article will discuss different methods of file handling in Python.
+
+To handle files in Python, you don’t need to import any external library or module; it can be performed using the built-in
+python function.
+
+Basics of file handling in Python:
+
+Open a file 
+Read/write/create/delete
+Close a file 
+The most used function in file handling is open()
+
+File Handling in Python
+Apart from the most commonly used file handling functions: open(), read(), write(), and close(), there are a lot more 
+functions that are used for file handling in Python.
+Here is a list of some commonly used file-handling functions in Python.
+
+Function	Description
+open()	Used to open a file.
+readable()	Used to check whether the file can be read or not.
+readline()	Used to read a single line from the file.
+readlines()	Used to read all the content in the form of lines.
+read()	Used to read whole content at a time.
+writable()	Used to check whether the file is writable or not.
+write()	Used to write a string to the file.
+writelines()	Used to write multiple strings at a time.
+close()	Used to close the file from the program.
+
+How to Create a new file in Python
+To create a new file, we have to open a file using one of the two parameters:
+
+x: it will create a new empty text file iff there does not exist any file with the same name; otherwise, it will throw an
+error
+
+w: it will create a file, whether any file exists with the same or not, i.e., it will not return an error if the same file
+name exists.
+
+How to Write in an existing file in Python
+Python offers two methods to write in an existing file:
+
+write () method
+It will add a single line at a time
+
+# write into an existing file
+
+with open('nl.txt','w') as nl:
+    nl.write('This is the first line\n')
+    nl.write('This is the second line\n')
+    nl.write('this is the third line')
+
+nl = open('nl.txt', w)
+
+#it allows to write all the line in one go
+nl.writelines('This is the first line\n', 'This is the second line\n', 'This is the third line')
+nl.close() 
+
+ Write a Python program to read an entire text file.
+What is Python language?                                                
+Python is a widely used high-level, general-purpose, interpreted, dynamic programming language.Its design philosophy 
+emphasizes code readability, and its syntax allows programmers to express concepts in fewer lines of code than possible in 
+languages such as C++ or Java. 
+Python supports multiple programming paradigms, including object-oriented, imperative and functional programming or procedural
+styles. It features a dynamic type system and automatic memory management and has a large and comprehensive standard 
+library.The best way we learn anything is by practice and exercise questions. We  have started this section for those 
+(beginner to intermediate) who are familiar with Python.
+
+def file_read(fname):
+        txt = open(fname)
+        print(txt.read())
+
+file_read('test.txt')
+
+ Write a Python program to append text to a file and display the text.
+def file_read(fname):
+        from itertools import islice
+        with open(fname, "w") as myfile:
+                myfile.write("Python Exercises\n")
+                myfile.write("Java Exercises")
+        txt = open(fname)
+        print(txt.read())
+file_read('abc.txt')
+
+Output:
+
+Python Exercises                                                                                              
+Java Exercises 
+
+ Write a Python program to read first n lines of a file.
+In this article, we will show you how to read and print the first N lines of a text file for the given N value using python.
+
+Assume we have taken a text file with the name ExampleTextFile.txt consisting of some random text. We will return the first
+N lines of a text file for the given N value.
+
+Algorithm (Steps)
+Following are the Algorithm/steps to be followed to perform the desired task −
+
+Create a variable to store the path of the text file.
+
+Enter the N value static/dynamic for printing the first N lines of a file.
+
+Use the open() function (opens a file and returns a file object as a result) to open the text file in read-only mode by 
+passing the file name, and mode as arguments to it (Here “r” represents read-only mode).
+
+with open(inputFile, 'r') as filedata:
+Using the readlines() function (returns a list with each line in the file represented as a list item. To limit the number
+of lines returned, use the hint argument. No more lines are returned if the total amount of bytes returned exceeds the 
+specified number) to obtain the list of lines of a given input text file.
+
+file.readlines(hint)
+Traverse in the list of lines to retrieve the first N lines of a text file using slicing (Using the slice syntax, you can
+return a range of characters. To return a part of the string, specify the start and end indexes, separated by a colon). 
+Here linesList[:N] indicates all the lines till N (excluding the last Nth line since the index starts from 0) from the 
+starting.
+
+for textline in (linesList[:N]):
+Print the first N lines of the file line by line.
+
+Close the input file with the close() function (used to close an opened file).
+
+Example
+The following program prints the first N lines of a text file for the given N value −
+
+# input text file
+inputFile = "ExampleTextFile.txt"
+
+# Enter N value
+N = int(input("Enter N value: "))
+
+# Opening the given file in read-only mode
+with open(inputFile, 'r') as filedata:
+
+# Read the file lines using readlines()
+linesList= filedata.readlines()
+print("The following are the first",N,"lines of a text file:")
+
+# Traverse in the list of lines to retrieve the first N lines of a file
+for textline in (linesList[:N]):
+
+# Printing the first N lines of the file line by line.
+print(textline, end ='')
+
+# Closing the input file
+filedata.close()
+
+ Write a Python program to read last n lines of a file.
+In this approach, the idea is to use a negative iterator with the readlines() function to read all the lines requested by
+the user from the end of file.
+
+# Python implementation to
+# read last N lines of a file
+
+# Function to read
+# last N lines of the file 
+def LastNlines(fname, N):
+	# opening file using with() method
+	# so that file get closed
+	# after completing work
+	with open(fname) as file:
+		
+		# loop to read iterate 
+		# last n lines and print it
+		for line in (file.readlines() [-N:]):
+			print(line, end ='')
+
+
+# Driver Code: 
+if __name__ == '__main__':
+	fname = 'File1.txt'
+	N = 3
+	try:
+		LastNlines(fname, N)
+	except:
+		print('File not found'
+Output: 
+ 
+
+Eighth line
+Ninth line
+Tenth line
+
+ Write a Python program to read a file line by line and store it into a list
+Using readlines()
+Let the content of the file data_file.txt be
+
+honda 1948
+mercedes 1926
+ford 1903
+Source Code
+
+with open("data_file.txt") as f:
+    content_list = f.readlines()
+
+# print the list
+print(content_list)
+
+# remove new line characters
+content_list = [x.strip() for x in content_list]
+print(content_list)
+
+Output
+
+['honda 1948\n', 'mercedes 1926\n', 'ford 1903']
+['honda 1948', 'mercedes 1926', 'ford 1903']
+readlines() returns a list of lines from the file.
+
+First, open the file and read the file using readlines().
+If you want to remove the new lines ('\n'), you can use strip().
+
+ Write a Python program to read a file line by line store it into a variable.
+Python provides built-in functions for creating, writing, and reading files. Two types of files can be handled in Python,
+normal text files and binary files (written in binary language, 0s, and 1s). In this article, we are going to study reading
+line by line from a file.
+
+# Open the file in read mode
+with open('filename.txt', 'r') as file:
+    # Read each line in the file
+    for line in file:
+        # Print each line
+        print(line.strip())
+
+Read a File Line by Line using Loop
+An iterable object is returned by open() function while opening a file. This final way of reading a file line-by-line 
+includes iterating over a file object in a loop. In doing this we are taking advantage of a built-in Python function that
+allows us to iterate over the file object implicitly using a for loop in combination with using the iterable object.
+
+L = ["Geeks\n", "for\n", "Geeks\n"]
+
+# Writing to file
+file1 = open('myfile.txt', 'w')
+file1.writelines(L)
+file1.close()
+
+# Opening file
+file1 = open('myfile.txt', 'r')
+count = 0
+
+# Using for loop
+print("Using for loop")
+for line in file1:
+    count += 1
+    print("Line{}: {}".format(count, line.strip()))
+
+# Closing files
+file1.close()
+
+Output:
+
+Using for loop
+Line1: Geeks
+Line2: for
+Line3: Geeks
+
+ Write a python program to find the longest words.
+Using Loop
+First split the sentence into words using split() and then uses a loop (for loop) to iterate through the words and keeps
+track of the longest word by comparing their lengths.
+
+s = "I am learning Python programming language"
+
+# Split the sentence into words
+words = s.split()
+
+# Initialize an empty string to store the longest word
+res = ""
+
+# Iterate through each word
+for word in words:
+  
+    # Update 'res' if the current word is longer than 'res'
+    if len(word) > len(res):
+        res = word
+
+print(res)
+
+Output
+programming
+
+ Write a Python program to count the number of lines in a text file.
+ounting the number of characters is important because almost all the text boxes that rely on user input have a certain
+limit on the number of characters that can be inserted. For example, If the file is small, you can use readlines() or a
+loop approach in Python.
+
+Input: line 1
+            line 2
+            line 3
+Output: 3 
+Explanation: The Input has 3 number of line in it so we get 3 as our output.
+Count the Number of Lines in a Text File
+Below are the methods that we will cover in this article:
+
+Using readlines()
+Using enumerate
+Use Loop and Counter to Count Lines
+Use the Loop and Sum functions to Count Lines
+
+Python counts the number of lines in a string using readlines()
+The readlines() are used to read all the lines in a single go and then return them as each line is a string element
+in a list. This function can be used for small files.
+
+with open(r"myfile.txt", 'r') as fp:
+	lines = len(fp.readlines())
+	print('Total Number of lines:', lines)
+Output:
+
+Total Number of lines: 5
+
+ Write a Python program to count the frequency of words in a file.
+Many times it is required to count the occurrence of each word in a text file. To achieve so, we make use of a dictionary
+object that stores the word as the key and its count as the corresponding value. We iterate through each word in the file
+and add it to the dictionary with a count of 1. If the word is already present in the dictionary we increment its count by
+1. 
+
+File sample.txt
+
+First, we create a text file in which we want to count the words in Python. Let this file be sample.txt with the following
+contents
+
+Mango banana apple pear
+Banana grapes strawberry
+Apple pear mango banana
+Kiwi apple mango strawberry
+Example 1: Count occurrences of each word in a given text file
+Here, we use a Python loop to read each line, and from that line, we are converting each line to lower for the unique count
+and then split each word to count its number.
+
+# Open the file in read mode 
+text = open("sample.txt", "r") 
+  
+# Create an empty dictionary 
+d = dict() 
+  
+# Loop through each line of the file 
+for line in text: 
+    # Remove the leading spaces and newline character 
+    line = line.strip() 
+  
+    # Convert the characters in line to 
+    # lowercase to avoid case mismatch 
+    line = line.lower() 
+  
+    # Split the line into words 
+    words = line.split(" ") 
+                         
+  
+    # Iterate over each word in line 
+    for word in words: 
+        # Check if the word is already in dictionary 
+        if word in d: 
+            # Increment count of word by 1 
+            d[word] = d[word] + 1
+        else: 
+            # Add the word to dictionary with count 1 
+            d[word] = 1
+  
+# Print the contents of dictionary 
+for key in list(d.keys()): 
+    print(key, ":", d[key]) 
+Output:
+
+mango : 3
+banana : 3
+apple : 3
+pear : 2
+grapes : 1
+strawberry : 2
+kiwi : 1
+
+ Write a Python program to write a list to a file.
+Reading and writing files is an important functionality in every programming language. Almost every application involves
+writing and reading operations to and from a file. To enable the reading and writing of files programming languages provide
+File I/O libraries with inbuilt methods that allow the creation, updation as well and reading of data from the files. 
+Python is no exception. Python too offers inbuilt methods to perform file operations. The io module in Python is used for
+file handling.
+
+Reading and Writing Lists to a File in Python
+The open(file path, mode) is used to open the required file in the desired mode. The open() method supports various modes
+of which three are of main concern:
+
+r:  read (default)Python
+w: write
+a: append
+write(): Insert the string str1 in a single line in the text file.
+
+read(): used to read data from the file opened using the open() method.
+
+Writing List to Files in Python
+There are various methods for writing files in Python. Here, we will discuss some commonly used techniques.
+
+Using write()
+Using writelines()
+Using String Join Along with “with open” syntax
+Writing List to Files in Python using write()
+The file is opened with the open() method in w+ mode within the with block, the w+ argument will create a new text file in
+write mode with the help of write(). The with block ensures that once the entire block is executed the file is closed 
+automatically.
+
+
+1
+# assign list
+2
+l = ['Geeks','for','Geeks!']
+3
+​
+4
+# open file
+5
+with open('gfg.txt', 'w+') as f:
+6
+    
+7
+    # write elements of list
+8
+    for items in l:
+9
+        f.write('%s\n' %items)
+10
+    
+11
+    print("File written successfully")
+12
+​
+13
+​
+14
+# close the file
+15
+f.close()
+Output:
+
+File written successfully
+
+
+ Write a Python program to copy the contents of a file to another file.
+Given two text files, the task is to write a Python program to copy contents of the first file into the second file.
+
+The text files which are going to be used are second.txt and first.txt:
+
+Using File handling to read and append
+
+We will open first.txt in ‘r’ mode and will read the contents of first.txt. After that, we will open second.txt in ‘a’ mode and will append the content of first.txt into second.txt.
+
+Example:
+
+# open both files 
+with open('first.txt','r') as firstfile, open('second.txt','a') as secondfile: 
+      
+    # read content from first file 
+    for line in firstfile: 
+               
+             # append content to second file 
+             secondfile.write(line)
+Output:
+
+ Explain Exception handling? What is an Error in Python?
+In Python, there are several built-in Python exceptions that can be raised when an error occurs during the execution of a
+program. Here are some of the most common types of exceptions in Python:
+
+SyntaxError: This exception is raised when the interpreter encounters a syntax error in the code, such as a misspelled 
+keyword, a missing colon, or an unbalanced parenthesis.
+TypeError: This exception is raised when an operation or function is applied to an object of the wrong type, such as 
+adding a string to an integer.
+NameError: This exception is raised when a variable or function name is not found in the current scope.
+IndexError: This exception is raised when an index is out of range for a list, tuple, or other sequence types.
+KeyError: This exception is raised when a key is not found in a dictionary.
+ValueError: This exception is raised when a function or method is called with an invalid argument or input, such as trying
+to convert a string to an integer when the string does not represent a valid integer.
+AttributeError: This exception is raised when an attribute or method is not found on an object, such as trying to access 
+a non-existent attribute of a class instance.
+IOError: This exception is raised when an I/O operation, such as reading or writing a file, fails due to an input/output 
+error.
+ZeroDivisionError: This exception is raised when an attempt is made to divide a number by zero.
+ImportError: This exception is raised when an import statement fails to find or load a module.
+These are just a few examples of the many types of exceptions that can occur in Python. It’s important to handle exceptions
+properly in your code using try-except blocks or other error-handling techniques, in order to gracefully handle errors and
+prevent the program from crashing.
+
+Difference between Syntax Error and Exceptions
+Syntax Error: As the name suggests this error is caused by the wrong syntax in the code. It leads to the termination of the
+program. 
+
+Example: 
+
+There is a syntax error in the code . The ‘if' statement should be followed by a colon (:), and the ‘print' statement 
+should be indented to be inside the ‘if' block.
+
+1
+amount = 10000
+2
+if(amount > 2999)
+3
+print("You are eligible to purchase Dsa Self Paced")
+Output:
+
+
+
+Exceptions: Exceptions are raised when the program is syntactically correct, but the code results in an error. This error
+does not stop the execution of the program, however, it changes the normal flow of the program.
+
+Example:
+
+Here in this code as we are dividing the ‘marks’ by zero so a error will occur known as ‘ZeroDivisionError’. ‘ZeroDivisionError’
+occurs when we try to divide any number by 0.
+
+1
+marks = 10000
+2
+a = marks / 0
+3
+print(a)
+Output:
+
+In the above example raised the ZeroDivisionError as we are trying to divide a number by 0.
+
+Example:
+ 1) TypeError: This exception is raised when an operation or function is applied to an object of the wrong type. Here’s an
+ example:
+ Here a ‘TypeError’ is raised as both the datatypes are different which are being added.
+
+
+
+1
+x = 5
+2
+y = "hello"
+3
+z = x + y
+output: 
+Traceback (most recent call last):
+  File "7edfa469-9a3c-4e4d-98f3-5544e60bff4e.py", line 4, in <module>
+    z = x + y
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+ How many except statements can a try-except block have? Name Some
+built-in exception classes:
+Error in Python can be of two types i.e. Syntax errors and Exceptions. Errors are the problems in a program due to which
+the program will stop the execution. On the other hand, exceptions are raised when some internal events occur which changes
+the normal flow of the program.
+
+Some of the common Exception Errors are : 
+ 
+
+IOError: if the file can’t be opened
+KeyboardInterrupt: when an unrequired key is pressed by the user
+ValueError: when the built-in function receives a wrong argument
+EOFError: if End-Of-File is hit without reading any data
+ImportError: if it is unable to find the module
+
+Try Except in Python
+
+Try and Except statement is used to handle these errors within our code in Python. The try block is used to check some code for errors i.e the code inside the try block will execute when there is no error in the program. Whereas the code inside the except block will execute whenever the program encounters some error in the preceding try block.
+ 
+
+Syntax: 
+
+try:
+    # Some Code
+except:
+    # Executed if error in the
+    # try block
+
+# Python code to illustrate
+# working of try() 
+def divide(x, y):
+    try:
+        # Floor Division : Gives only Fractional Part as Answer
+        result = x // y
+        print("Yeah ! Your answer is :", result)
+    except ZeroDivisionError:
+        print("Sorry ! You are dividing by zero ")
+
+# Look at parameters and note the working of Program
+divide(3, 2)
+
+Output : 
+ 
+Yeah ! Your answer is : 1
+
+ When will the else part of try-except-else be executed?
+An Exception is an Unexpected Event, which occurs during the execution of the program. It is also known as a run time error.
+When that error occurs, Python generates an exception during the execution and that can be handled, which prevents your 
+program from interrupting.
+
+a = 5
+b = 0
+print(a/b)
+
+Output
+
+Traceback (most recent call last):
+  File "/home/8a10be6ca075391a8b174e0987a3e7f5.py", line 3, in <module>
+    print(a/b)
+ZeroDivisionError: division by zero
+
+Exception handling with try, except, else, and finally
+Try: This block will test the excepted error to occur
+Except:  Here you can handle the error
+Else: If there is no exception then this block will be executed
+Finally: Finally block always gets executed either exception is generated or not
+
+# Python code to illustrate working of try()  
+def divide(x, y): 
+    try: 
+        # Floor Division : Gives only Fractional
+        # Part as Answer 
+        result = x // y 
+        print("Yeah ! Your answer is :", result) 
+    except ZeroDivisionError: 
+        print("Sorry ! You are dividing by zero ") 
+  
+# Look at parameters and note the working of Program 
+divide(3, 2) 
+divide(3, 0)
+
+Output:
+
+Yeah ! Your answer is : 1
+Sorry ! You are dividing by zero 
+
+ Can one block of except statements handle multiple exception?
+syntax:
+
+try:
+    # Code that may raise exceptions
+except (ExceptionType1, ExceptionType2, ...):
+    # Code to handle exceptions of ExceptionType1 or ExceptionType2, etc.
+
+structure,
+
+try - Contains the code that may raise exceptions.
+except is followed by a tuple of exception types (ExceptionType1, ExceptionType2, etc.) enclosed in parentheses.
+The indented block following "except" is where we can put the code to handle exceptions of any of the specified types.
+
+try:
+    n = int(input("Input a number: "))
+    result = 10 / n
+except (ValueError, ZeroDivisionError):
+    print("Invalid input or division by zero occurred.")
+
+Output:
+
+Input a number: a
+Invalid input or division by zero occurred.
+ 
+Input a number: 0
+Invalid input or division by zero occurred.
+
+ When is the finally block executed?
+Try-Catch-Finally Block Structure:
+In programming, when you write code that may result in errors or exceptions, you use a construct called try-catch-finally
+to gracefully handle these situations.
+
+Try Block:
+Place code that you think will cause an error or exception in a Try block. Include this code in a try block to monitor for
+problems. If an error occurs within this block, the program will not stop abruptly. Instead, proceed to the next step in 
+the structure.
+
+Catch Block:
+The Catch block is like a safety net for your program. If an error occurs within a try block, the program advances to the 
+associated catch block. Here, you may describe what actions your program should take in response to certain sorts of 
+failures. You may use numerous catch blocks to handle distinct sorts of exceptions, allowing your program to respond 
+effectively in a variety of scenarios.
+
+Finally Block:
+A finally block is the final part of a try-catch construct and is optional. The instruction contained in the last block is
+always executed, regardless of whether an error occurs or not. This makes it suitable for cleanup actions such as file 
+closure and resource freeing, which preserve programme integrity in the case of a mistake.
+
+Purpose of the Finally Block:
+The finally block plays an important role in programming by making sure that specific activities are executed regardless 
+of whether an error or exception happens in the try block. Here are the key reasons for its existence:
+
+Guaranteed Execution: The finally block's principal function is to ensure that certain code runs regardless of what happened
+in the try block. Even if an error occurs, the code within the finally block will continue run.
+Resource Cleanup: It is often employed for cleanup tasks such as closing files, disconnecting database connections, and 
+freeing up resources in memory. This guarantees that resources are maintained and released correctly, even if an error 
+disrupts the regular flow of execution.
+State Restoration: In some cases, the finally block is used to restore the state of objects or revert changes made during
+the try block. This ensures that the program leaves no trace of its failed attempt and returns to a consistent state.
+Finalization: Certain actions need to be performed regardless of whether an operation succeeds or fails. The finally block
+is the ideal place to include such finalization tasks, ensuring that critical operations are completed regardless of the 
+outcome.
+Exception Handling Flow:
+Try Block Execution: The code within the try block is executed.
+Exception Occurrence Check: If an error or exception occurs during the execution of the try block, it's caught.
+Catch Block Execution: Control moves to the corresponding catch block, where the exception is handled.
+Finally Block Execution: Regardless of whether an exception occurred or not, the code within the finally block is executed.
+Propagation: If the exception cannot be handled in the catch block, it propagates up the call stack.
+Higher-Level Handling: The exception may be caught and handled by higher-level code or the default handler.
+Cleanup: Finally, any cleanup tasks specified in the finally block are executed before the program continues its normal 
+flow of execution.
+Syntax of Finally Block:
+try {
+    // Code that may throw an exception
+    ...
+} 
+catch (Exception e) {
+    // Exception handling code
+    ...
+} 
+finally {
+    // Cleanup code
+    // This block will always execute, regardless of whether an exception occurred or not
+    ...
+}
+
+def divide(num1, num2):
+    return num1 / num2
+
+try:
+    # Code that may cause an exception
+    result = divide(10, 0)  # Attempting to divide by zero
+    print("Result:", result)  # This line won't be executed
+except ZeroDivisionError as e:
+    # Handling the exception
+    print("An error occurred:", e)
+finally:
+    # finally block
+    print("\nFinally block executed, performing cleanup tasks.")
+
+Output
+('An error occurred:', ZeroDivisionError('integer division or modulo by zero',))
+
+Finally block executed, performing cleanup tasks.
+
+ What happens when „1‟== 1 is executed?
+we get a false
+Explanation: it simply evaluates to false and does not raise any exception.
+
+ How Do You Handle Exceptions With Try/Except/Finally In Python?
+Explain with coding snippets.
+An Exception is an Unexpected Event, which occurs during the execution of the program. It is also known as a run time error
+.When that error occurs, Python generates an exception during the execution and that can be handled, which prevents your
+program from interrupting.
+
+Example: In this code, The system can not divide the number with zero so an exception is raised. 
+
+
+1
+a = 5
+2
+b = 0
+3
+print(a/b)
+Output
+
+Traceback (most recent call last):
+  File "/home/8a10be6ca075391a8b174e0987a3e7f5.py", line 3, in <module>
+    print(a/b)
+ZeroDivisionError: division by zero
+Exception ha
+
+Exception handling with try, except, else, and finally
+Try: This block will test the excepted error to occur
+Except:  Here you can handle the error
+Else: If there is no exception then this block will be executed
+Finally: Finally block always gets executed either exception is generated or not
+Python Try, Except, else and Finally Syntax
+try:
+       # Some Code.... 
+except:
+       # optional block
+       # Handling of exception (if required)
+else:
+       # execute if no exception
+finally:
+      # Some code .....(always executed)
+
+# Python code to illustrate working of try()  
+def divide(x, y): 
+    try: 
+        # Floor Division : Gives only Fractional
+        # Part as Answer 
+        result = x // y 
+        print("Yeah ! Your answer is :", result) 
+    except ZeroDivisionError: 
+        print("Sorry ! You are dividing by zero ") 
+  
+# Look at parameters and note the working of Program 
+divide(3, 2) 
+divide(3, 0)
+
+Output:
+
+Yeah ! Your answer is : 1
+Sorry ! You are dividing by zero 
+
+ Write python program that user to enter only odd numbers, else will
+raise an exception.
+Even Odd Program in Python
+While checking Python even or odd numbers, the modulus operator is used. The modulus operator returns the remainder 
+obtained after a division is performed. If the value returned after the application of the modulus operator is zero, 
+then the program will print that the input number is even. Else, it will print the number is odd. Also, if…else statements
+will be used.
+
+
+num = int (input (“Enter any number to test whether it is odd or even: “)
+
+if (num % 2) == 0:
+
+              print (“The number is even”)
+
+else:
+
+              print (“The provided number is odd”)
+
+Output:
+
+Enter any number to test whether it is odd or even:
+
+887
+
+887 is odd.
+
+ What are oops concepts? Is multiple inheritance supported in java
+Multiple Inheritance is a feature of an object-oriented concept, where a class can inherit properties of more than one 
+parent class. The problem occurs when there exist methods with the same signature in both the superclasses and subclass. 
+On calling the method, the compiler cannot determine which class method to be called and even on calling which class method
+gets the priority.
+
+// Java Program to Illustrate Unsupportance of
+// Multiple Inheritance
+
+// Importing input output classes
+import java.io.*;
+
+// Class 1
+// First Parent class
+class Parent1 {
+
+// Method inside first parent class
+void fun() {
+
+	// Print statement if this method is called
+	System.out.println("Parent1");
+}
+}
+
+// Class 2
+// Second Parent Class
+class Parent2 {
+
+// Method inside first parent class
+void fun() {
+
+	// Print statement if this method is called
+	System.out.println("Parent2");
+}
+}
+
+// Class 3
+// Trying to be child of both the classes
+class Test extends Parent1, Parent2 {
+
+// Main driver method 
+public static void main(String args[]) {
+
+	// Creating object of class in main() method
+	Test t = new Test();
+
+	// Trying to call above functions of class where
+	// Error is thrown as this class is inheriting
+	// multiple classes
+	t.fun();
+}
+}
+Output: Compilation error is thrown 
+
+ How to Define a Class in Python? What Is Self? Give An Example Of
+A Python Class
+Self represents the instance of the class. By using the “self”  we can access the attributes and methods of the class in
+Python. It binds the attributes with the given arguments. The reason you need to use self. is because Python does not use 
+the @ syntax to refer to instance attributes. Python decided to do methods in a way that makes the instance to which the 
+method belongs be passed automatically, but not received automatically: the first parameter of methods is the instance the
+method is called on
+
+What is the use of self in Python?
+When working with classes in Python, the term “self” refers to the instance of the class that is currently being used. 
+It is customary to use “self” as the first parameter in instance methods of a class. Whenever you call a method of an 
+object created from a class, the object is automatically passed as the first argument using the “self” parameter. This 
+enables you to modify the object’s properties and execute tasks unique to that particular instance.
+
+1
+class Mynumber:
+2
+    def __init__(self, value):
+3
+        self.value = value
+4
+    
+5
+    def print_value(self):
+6
+        print(self.value)
+7
+​
+8
+obj1 = Mynumber(17)
+9
+obj1.print_value()
+Output:
+
+17
+
+ Write a Python class named Rectangle constructed by a length and
+width and a method which will compute the area of a rectangle
+Program To Find Area of Rectangle in Python
+Below are some of the ways by which we can find the area of the rectangle in Python:
+
+Simple Multiplication
+Using a Class
+Using a Lambda Function
+Using a Named Tuple
+Program to find the Area of a Rectangle by Simple Multiplication
+In this method, we define a function that takes the length and width of a rectangle as parameters and calculates the area
+by simply multiplying them.
+
+1
+# Function to calculate the area using simple multiplication
+2
+def area_simple_multiplication(length, width):
+3
+    return length * width
+4
+​
+5
+# Example usage:
+6
+length = 5
+7
+width = 8
+8
+result = area_simple_multiplication(length, width)
+9
+print(f&quot;Area of Rectangle: {result}&quot;)
+
+Output
+Area of Rectangle: 40
+
+ Write a Python class named Circle constructed by a radius and two
+methods which will compute the area and the perimeter of a circle
+Python provides a simple yet powerful way to calculate the area and circumference of a circle using various mathematical
+formulas. In this article, we will explore the main logic behind these calculations and demonstrate two commonly used 
+methods to find the area and circumference of a circle in Python.
+
+The fundamental formulas for finding the area (A) and circumference (C) of a circle are as follows:
+
+Area of Circle (A): A = π * r^2, where π (pi) is a mathematical constant approximately equal to 3.14159, and r is the 
+radius of the circle.
+Circumference of Circle (C): C = 2 * π * r, where π is the constant, and r is the radius.
+Python Program To Find Area And Circumference Of Circle
+Below, are the code examples of Python Program To Find the Area and Circumference Of the Circle.
+
+Using User Input
+Using Function
+Find Area And Circumference Of Circle Using User Input
+In this example, the below code calculates the area and circumference of a circle based on the user-input radius, using the
+math module for the mathematical constant pi. The results are then displayed to the user.
+
+import math
+
+# Taking radius input from the user
+radius = float(input(&quot;Enter the radius of the circle: &quot;))
+
+# Calculating area and circumference
+area = math.pi * radius**2
+circumference = 2 * math.pi * radius
+
+# Displaying the results
+print(f&quot;Area of the circle: {area}&quot;)
+print(f&quot;Circumference of the circle: {circumference}&quot;)
+
+Output :
+
+Enter the radius of the circle: 23
+Area of the circle: 1661.9025137490005
+Circumference of the circle: 144.51326206513048
+
+ Write a Python class named Circle constructed by a radius and two
+methods which will compute the area and the perimeter of a circle
+When it is required to find the area and perimeter of a circle using classes, object oriented method is used. Here, a class
+is defined, and attributes are defined. Functions are defined within the class that perform certain operations. An instance
+of the class is created, and the functions are used to find the area and perimeter of the circle.
+
+Below is a demonstration for the same −
+
+Example
+import math
+class circle_compute():
+   def __init__(self,my_radius):
+      self.radius=my_radius
+   def area_calculate(self):
+      return math.pi*(self.radius**2)
+   def perimeter_calculate(self):
+      return 2*math.pi*self.radius
+my_result = int(input("Enter the radius of circle..."))
+my_instance = circle_compute(my_result)
+print("The radius entered is :")
+print(my_result)
+print("The computed area of circle is ")
+print(round(my_instance.area_calculate(),2))
+print("The computed perimeter of circle is :")
+print(round(my_instance.perimeter_calculate(),2))
+
+Output
+Enter the radius of circle...7
+The radius entered is :
+7
+The computed area of circle is
+153.94
+The computed perimeter of circle is :
+43.98
+
+ Explain Inheritance in Python with an example? What is init? Or What
+Is A Constructor In Python?
+In Python, a constructor is a special method that is called automatically when an object is created from a class. Its main
+role is to initialize the object by setting up its attributes or state.
+
+The method __new__ is the constructor that creates a new instance of the class while __init__ is the initializer that sets
+up the instance’s attributes after creation. These methods work together to manage object creation and initialization.
+
+__new__ Method
+This method is responsible for creating a new instance of a class. It allocates memory and returns the new object. It is 
+called before __init__.
+
+class ClassName:
+    def __new__(cls, parameters):
+        instance = super(ClassName, cls).__new__(cls)
+        return instance
+
+__init__ Method
+This method initializes the newly created instance and is commonly used as a constructor in Python. It is called 
+immediately after the object is created by __new__ method and is responsible for initializing attributes of the instance.
+
+class ClassName:
+    def __init__(self, parameters):
+        self.attribute = value
+
+Differences Between __init__ and __new__
+__new__ method:
+Responsible for creating a new instance of the class.
+Rarely overridden but useful for customizing object creation and especially in singleton or immutable objects.
+__init__ method:
+Called immediately after __new__.
+Used to initialize the created object.
+
+ What is Instantiation in terms of OOP terminology?
+In programming, instantiation is the creation of a real instance or particular realization of an abstraction or template, 
+such as a class of objects or a computer process. To instantiate is to create such an instance by, for example, defining one
+particular variation of an object within a class, giving it a name and locating it in some physical place.
+
+In object-oriented programming (OOP), an object is essentially an instance of a class. In OOP languages, a class is like
+a blueprint where variables and methods are defined, and each time a new instance of the class (instantiation) is created,
+an object gets created -- hence the term object-oriented. All objects of a class have a particular set of associated 
+variables or properties, accessories or means to access those variables, and functions or methods.
+
+These properties (or variables) can be viewed as data describing the objects that are created from a class. For example, 
+a class may represent a new employee. In this instance, the properties of this class may include job title, role, responsibilities,
+wages and so on.
+
+An instance of an object can be declared by giving it a unique name that can be used in a program. This process is known as
+instantiation. A class can also be instantiated to create an object, a concrete instance of the class. The object is an
+executable file that can run on a computer. 
+
+One use of instantiation is data modeling and programming before OOP. Another is making a real (data-filled) object from 
+an abstract object as is done by creating an entry in a database table (which can be thought of as a kind of class template
+for objects).
+
+In OOP, the creation and initialization of objects of a given class is a fundamental step. In Python, everything is an 
+instance or an object. Class constructors, which are like blueprints, allow software engineers to create and initialize 
+objects of a given class. This instantiation process follows the steps of instance creation and instance initialization 
+and makes those objects ready to use.
+
+When a copy of a class is created that inherits all the class properties and functions, it is called instantiating a class.
+To instantiate a class in Python, the class like it is called a function, passing the arguments defined by the __init__ 
+method. The newly created object is the return value.
+
+ What is used to check whether an object o is an instance of class A?
+Python isinstance ()
+The isinstance Python is an in-built function that is based on the concept of objects. Python is an object-oriented 
+language in which classes can be created. The isinstance function can be used in various ways in a Python program. The 
+most important and common use of the function is to know which object belongs to which class in the middle of the program. 
+
+The isinstance () function checks whether an object is an instance of the class mentioned. One can test if an object or 
+variable is an instance of the type or class. If inheritance is present in the program, then the function can be used to 
+check if a specified class is the parent class of an object. 
+
+The following syntax is followed to implement the isinstance () function in Python. 
+
+isinstance (object, classinfo)
+
+isinstance () Parameters 
+The isinstance Python function requires two parameters to be passed. The first is the object that needs to be checked 
+whether it is a subclass or instance of the specified class or not. 
+
+The second argument that needs to be passed in the isinstance () function is the class, type, or tuple of a class or type.
+The object needs to be checked as an element of this class.  
+
+The program below shows an instance can be created in a class and then it is tested with the help of the isinstance 
+function.
+
+
+class Test1:
+
+              a = 6
+
+testInstance = Test1 ()
+
+print (isinstance (testInstance, Test1))
+
+print (isinstance (testInstance, (list, tuple)))
+
+print (isinstance (testInstance, (list, tuple, Test1)))
+
+Here, the first isinstance function does not use class info parameter. The output for the program will be as follows. 
+
+True 
+
+False 
+
+True 
+ 
+ What relationship is appropriate for Course and Faculty?
+ What relationship is appropriate for Student and Person?
