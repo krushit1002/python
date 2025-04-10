@@ -1,0 +1,5 @@
+print("my name is krushit shah")
+print("my father name is dineshbhai")
+print("my mother name is dinaben")
+print("my sister name is jaiminiben")
+print("my father is a business man.","my mother is a nurse.")
